@@ -4,10 +4,11 @@ on:
   - push
   - pull_request
 jobs:
-  run_coverage_test:
+  run_lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - run: npm install
       - run: npx prettier --check ./src/
+      - run: npx eslint src/**
