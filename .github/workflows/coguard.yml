@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          BEARER=$(curl -d 'client_id=client-react-frontend' \
+          BEARER=$(curl -f -d 'client_id=client-react-frontend' \
           -d "username=${{ secrets.COGUARD_USER_NAME }}" \
           -d 'password=${{ secrets.COGUARD_PASSWORD }}' \
           -d 'grant_type=password' \
