@@ -14,6 +14,7 @@ jobs:
           -d "password=${{ secrets.COGUARD_PASSWORD }}" \
           -d 'grant_type=password' \
           "https://portal.coguard.io/auth/realms/coguard/protocol/openid-connect/token" | jq -r '.access_token');
+          echo "BEARER=$BEARER" >> $GITHUB_ENV
       - run: echo "${{ env.BEARER }}"
       - run: |
           curl -f -X POST \
