@@ -11,7 +11,7 @@ jobs:
       - run: |
           BEARER=$(curl -f -d 'client_id=client-react-frontend' \
           -d "username=${{ secrets.COGUARD_USER_NAME }}" \
-          -d 'password=${{ secrets.COGUARD_PASSWORD }}' \
+          -d "password=${{ secrets.COGUARD_PASSWORD }}" \
           -d 'grant_type=password' \
           "https://portal.coguard.io/auth/realms/coguard/protocol/openid-connect/token" | jq -r '.access_token');
       - run: |
