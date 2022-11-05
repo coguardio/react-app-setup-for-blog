@@ -15,9 +15,8 @@ jobs:
           -d 'grant_type=password' \
           "https://portal.coguard.io/auth/realms/coguard/protocol/openid-connect/token" | jq -r '.access_token');
           echo "BEARER=$BEARER" >> $GITHUB_ENV
-      - run: echo "${{ env.BEARER }}"
       - run: |
-          curl -f -X POST \
+          curl -X POST \
           -H "Authorization: Bearer $BEARER" \
           -d '{"clusterType": "", "location": "", "derivedFrom": ""}' \
           "https://portal.coguard.io/server/cluster/add-cluster/react-test-app?organizationName=foobar"
