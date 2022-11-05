@@ -43,7 +43,7 @@ jobs:
           curl -f \
           -X PUT \
           -H "Authorization: Bearer $BEARER" \
-          "https://portal.coguard.io/cluster/run-report/react-test-app?organizationName=foobar"
+          "https://portal.coguard.io/server/cluster/run-report/react-test-app?organizationName=foobar"
       - run: |
           LATEST_REPORT_TIMESTAMP=$(curl -k -f -H \
           "Authorization: Bearer $BEARER" \
