@@ -48,7 +48,8 @@ jobs:
           LATEST_REPORT_TIMESTAMP=$(curl -k -f -H \
           "Authorization: Bearer $BEARER" \
           "https://portal.coguard.io/server/cluster/reports/list?organizationName=foobar&clusterName=react-test-app" \
-          | jq -r 'last(.[])')
+          | jq -r 'last(.[])');
+          echo "LATEST_REPORT_TIMESTAMP=$LATEST_REPORT_TIMESTAMP" >> $GITHUB_ENV;
       - run: |
           curl -f \
           -X GET \
