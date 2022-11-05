@@ -38,7 +38,7 @@ jobs:
           --header "Content-Type: application/octet-stream" \
           -H "Authorization: Bearer $BEARER" \
           --data-binary @./Dockerfile \
-          "https://portal.coguard.io/server/cluster/upsert-config-file/react-test-app/react-app-container/dockerfile_react?organizationName=foobar&fileName=Dockerfile&defaultFileName=dockerfile&subPath=."
+          "https://portal.coguard.io/server/cluster/upsert-config-file/react-test-app/react-app-container/dockerfile_react?organizationName=foobar&fileName=Dockerfile&defaultFileName=Dockerfile&subPath=."
       - run: |
           curl -f \
           -X PUT \
