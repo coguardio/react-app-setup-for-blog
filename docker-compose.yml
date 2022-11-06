@@ -12,6 +12,33 @@ services:
       custom_react_network:
         ipv4_address: 172.16.238.2
         ipv6_address: 2001:3984:3989::2
+  nginx:
+    build: ./docker_images/nginx
+    restart: always
+    hostname: nginx.docker-example.net
+    ports:
+      - 80:80
+      - 443:443
+    logging:
+      options:
+        max-size: 100m
+        max-file: '3'
+    networks:
+      custom_react_network:
+        ipv4_address: 172.16.238.3
+        ipv6_address: 2001:3984:3989::3
+  redis:
+    build: ./docker_images/redis
+    restart: always
+    hostname: redis.docker-example.net
+    logging:
+      options:
+        max-size: 100m
+        max-file: '3'
+    networks:
+      custom_react_network:
+        ipv4_address: 172.16.238.4
+        ipv6_address: 2001:3984:3989::4
 
 networks:
   custom_react_network:
