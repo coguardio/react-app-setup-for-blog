@@ -69,6 +69,32 @@ jobs:
           curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer $BEARER" \
+          -d '{"serviceName": "dockerfile", "serviceKey": "dockerfile_elasticsearch", "version": ""}' \
+          "https://portal.coguard.io/server/cluster/add-new-service/react-test-app/react-app-container?organizationName=foobar"
+      - run: |
+          curl -f \
+          -X POST \
+          --header "Content-Type: application/octet-stream" \
+          -H "Authorization: Bearer $BEARER" \
+          --data-binary @./docker_images/elasticsearch/Dockerfile \
+          "https://portal.coguard.io/server/cluster/upsert-config-file/react-test-app/react-app-container/dockerfile_elasticsearch?organizationName=foobar&fileName=Dockerfile&defaultFileName=Dockerfile&subPath=."
+      - run: |
+          curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer $BEARER" \
+          -d '{"serviceName": "elasticsearch", "serviceKey": "elasticsearch_base", "version": ""}' \
+          "https://portal.coguard.io/server/cluster/add-new-service/react-test-app/react-app-container?organizationName=foobar"
+      - run: |
+          curl -f \
+          -X POST \
+          --header "Content-Type: application/octet-stream" \
+          -H "Authorization: Bearer $BEARER" \
+          --data-binary @./docker_images/elasticsearch/conf/elasticsearch.yml \
+          "https://portal.coguard.io/server/cluster/upsert-config-file/react-test-app/react-app-container/?organizationName=foobar&fileName=elasticsearch.yml&defaultFileName=elasticsearch.yml&subPath=."
+      - run: |
+          curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer $BEARER" \
           -d '{"serviceName": "nginx", "serviceKey": "nginx_ingress_react", "version": ""}' \
           "https://portal.coguard.io/server/cluster/add-new-service/react-test-app/react-app-container?organizationName=foobar"
       - run: |
