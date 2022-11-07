@@ -90,7 +90,7 @@ jobs:
           --header "Content-Type: application/octet-stream" \
           -H "Authorization: Bearer $BEARER" \
           --data-binary @./docker_images/elasticsearch/conf/elasticsearch.yml \
-          "https://portal.coguard.io/server/cluster/upsert-config-file/react-test-app/react-app-container/?organizationName=foobar&fileName=elasticsearch.yml&defaultFileName=elasticsearch.yml&subPath=."
+          "https://portal.coguard.io/server/cluster/upsert-config-file/react-test-app/react-app-container/elasticsearch_base?organizationName=foobar&fileName=elasticsearch.yml&defaultFileName=elasticsearch.yml&subPath=."
       - run: |
           curl -X POST \
           -H "Content-Type: application/json" \
