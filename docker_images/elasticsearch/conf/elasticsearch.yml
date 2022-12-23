@@ -28,3 +28,14 @@ action.destructive_requires_name: true
 http.compression: false
 xpack.security.audit.enabled: true
 xpack.security.ssl.diagnose.trust: true
+http.port: 9100
+
+
+repositories.url.allowed_urls: []
+#coguard-config-checker: disable elasticsearch_enable_fips Requires enterprise license
+
+bootstrap.memory_lock: true
+
+reindex.remote.whitelist: []
+
+#coguard-config-checker: disable elasticsearch_index_refresh_interval_set Deprecated setting

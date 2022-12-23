@@ -4,4 +4,6 @@ FROM elasticsearch:8.5.0
 VOLUME /var/log
 USER elasticsearch
 
+HEALTHCHECK --interval=10s --timeout=5s --start-period=1m --retries=5 CMD curl -I -f --max-time 5 http://localhost:9100 || exit 1
+
 COPY conf/elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
