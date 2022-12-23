@@ -83,6 +83,8 @@ services:
           > config/certs/instances.yml;
           bin/elasticsearch-certutil cert --silent --pem -out config/certs/certs.zip --in config/certs/instances.yml --ca-cert config/certs/ca/ca.crt --ca-key config/certs/ca/ca.key;
           unzip config/certs/certs.zip -d config/certs;
+          bin/elasticsearch-syskeygen;
+          bin/elasticsearch-keystore add-file xpack.watcher.encryption_key config/system_key;
         fi;
         echo "Setting file permissions"
         chown -R root:root config/certs;
@@ -113,7 +115,7 @@ services:
       - certs:/usr/share/elasticsearch/config/certs
       - esdata01:/usr/share/elasticsearch/data
     ports:
-      - ${ES_PORT}:9200
+      - ${ES_PORT}:9100
     environment:
       - node.name=es01
       - cluster.name=${CLUSTER_NAME}

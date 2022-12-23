@@ -1,2 +1,30 @@
 cluster.name: "docker-cluster"
 network.host: 0.0.0.0
+
+# xpack.watcher.encrypt_sensitive_data: true
+
+xpack.security.http.filter.enabled: true
+xpack.security.http.filter.allow: [ "localhost", "172.16.238.1", "172.16.238.2", "172.16.238.3", "172.16.238.4", "172.16.238.5", "172.16.238.6", "172.16.238.7", "172.16.238.8", "172.16.238.9" ]
+xpack.security.http.filter.deny: _all
+
+xpack.security.transport.filter.enabled: true
+xpack.security.transport.filter.allow: [ "localhost", "172.16.238.1", "172.16.238.2", "172.16.238.3", "172.16.238.4", "172.16.238.5", "172.16.238.6", "172.16.238.7", "172.16.238.8", "172.16.238.9" ]
+xpack.security.transport.filter.deny: _all
+
+xpack.security.enabled: true
+
+xpack.security.http.ssl.enabled: true
+
+xpack.security.transport.ssl.enabled: true
+
+xpack.http.whitelist: [ "localhost", "172.16.238.1", "172.16.238.2", "172.16.238.3", "172.16.238.4", "172.16.238.5", "172.16.238.6", "172.16.238.7", "172.16.238.8", "172.16.238.9" ]
+xpack.security.transport.ssl.supported_protocols: "TLSv1.2,TLSv1.3"
+xpack.security.http.ssl.supported_protocols: "TLSv1.2,TLSv1.3"
+
+xpack.monitoring.collection.enabled: true
+xpack.security.authc.token.enabled: true
+
+action.destructive_requires_name: true
+http.compression: false
+xpack.security.audit.enabled: true
+xpack.security.ssl.diagnose.trust: true
