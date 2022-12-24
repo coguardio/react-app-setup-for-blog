@@ -1,7 +1,7 @@
 cluster.name: "docker-cluster"
 network.host: 0.0.0.0
 
-# xpack.watcher.encrypt_sensitive_data: true
+xpack.watcher.encrypt_sensitive_data: true
 
 xpack.security.http.filter.enabled: true
 xpack.security.http.filter.allow: [ "localhost", "172.16.238.1", "172.16.238.2", "172.16.238.3", "172.16.238.4", "172.16.238.5", "172.16.238.6", "172.16.238.7", "172.16.238.8", "172.16.238.9" ]
@@ -31,7 +31,7 @@ xpack.security.ssl.diagnose.trust: true
 http.port: 9100
 
 
-repositories.url.allowed_urls: []
+repositories.url.allowed_urls: ["www.our-react-app.com"]
 #coguard-config-checker: disable elasticsearch_enable_fips Requires enterprise license
 
 bootstrap.memory_lock: true
@@ -39,3 +39,5 @@ bootstrap.memory_lock: true
 reindex.remote.whitelist: []
 
 #coguard-config-checker: disable elasticsearch_index_refresh_interval_set Deprecated setting
+
+discovery.seed_hosts: ["172.16.238.5", "172.16.238.6", "172.16.238.7", "172.16.238.8"]
