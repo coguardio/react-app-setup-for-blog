@@ -2,6 +2,7 @@ cluster.name: "docker-cluster"
 network.host: 0.0.0.0
 
 xpack.watcher.encrypt_sensitive_data: true
+xpack.watcher.encryption_key: "config/certs/system_key"
 
 xpack.security.http.filter.enabled: true
 xpack.security.http.filter.allow: [ "localhost", "172.16.238.1", "172.16.238.2", "172.16.238.3", "172.16.238.4", "172.16.238.5", "172.16.238.6", "172.16.238.7", "172.16.238.8", "172.16.238.9" ]
