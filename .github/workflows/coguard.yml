@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run the CoGuard CLI Action
-        uses: actions/coguard-scan-action
+        uses: coguardio/coguard-scan-action
         with:
           username: ${{ secrets.COGUARD_USER_NAME }}
           password: ${{ secrets.COGUARD_PASSWORD }}
